@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Service } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Produto } from './produto';
+import { Produto } from '../models/produto';
 
 @Service()
 export class LojaService {

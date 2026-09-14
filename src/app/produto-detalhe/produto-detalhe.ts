@@ -1,6 +1,6 @@
 import { Component, inject, input, OnInit, signal } from '@angular/core';
-import { LojaService } from '../loja-service';
-import { Produto } from '../produto';
+import { LojaService } from '../services/loja-service';
+import { Produto } from '../models/produto';
 
 @Component({
   imports: [],
