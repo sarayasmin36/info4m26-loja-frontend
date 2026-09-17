@@ -1,12 +1,33 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { CarrinhoService, Produto } from './services/carrinho-service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.scss'
+  templateUrl: './app.html'
 })
 export class App {
-  protected readonly title = signal('loja-frontend');
+
+  produto: Produto = {
+    id: 1,
+    nome: 'Camiseta',
+    preco: 50
+  };
+
+  constructor(public carrinho: CarrinhoService) {}
+
+  adicionar() {
+    this.carrinho.adicionarItem(this.produto);
+  }
+
+  aumentar() {
+    this.carrinho.aumentarQuantidade(1);
+  }
+
+  diminuir() {
+    this.carrinho.diminuirQuantidade(1);
+  }
+
+  remover() {
+    this.carrinho.removerItem(1);
+  }
 }

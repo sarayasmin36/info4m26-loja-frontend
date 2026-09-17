@@ -1,1 +1,18 @@
-<router-outlet />
+<h1>Carrinho de Compras</h1>
+
+<button (click)="adicionar()">Adicionar</button>
+<button (click)="aumentar()">Aumentar</button>
+<button (click)="diminuir()">Diminuir</button>
+<button (click)="remover()">Remover</button>
+
+<h3>Itens:</h3>
+
+@for (item of carrinho.itens(); track item.id) {
+  <p>
+    {{ item.produto.nome }} -
+    Quantidade: {{ item.quantidade }} -
+    R$ {{ item.produto.preco }}
+  </p>
+}
+
+<h3>Total: R$ {{ carrinho.obterTotal() }}</h3>
